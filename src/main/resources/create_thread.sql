@@ -1,0 +1,16 @@
+CREATE TABLE thread (
+    tid INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    title VARCHAR(50),
+    content VARCHAR(200),
+    username VARCHAR(50),
+    category VARCHAR(50),
+    PRIMARY KEY (tid)
+);
+
+CREATE TABLE reply (
+    rid INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    tid INTEGER,
+    content VARCHAR(200),
+    username VARCHAR(50),
+    PRIMARY KEY (rid)
+);

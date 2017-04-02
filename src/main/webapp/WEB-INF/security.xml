@@ -10,14 +10,37 @@
     <b:bean id="dataSource" 
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <b:property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
-        <b:property name="url" value="jdbc:derby://localhost:1527/custsupport" />
+        <b:property name="url" value="jdbc:derby://localhost:1527/forum" />
         <b:property name="username" value="nbuser" />
         <b:property name="password" value="nbuser" />
     </b:bean> 
 
     <http auto-config="true">
-        <intercept-url pattern="/ticket/delete/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/ticket/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/user/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/addPoll" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/deletePoll" access="hasRole('ADMIN')" />
+        
+        <intercept-url pattern="/forum/lecture/deleteThread/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/lecture/deleteReply/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/lab/deleteThread/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/lab/deleteReply/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/other/deleteThread/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/other/deleteReply/**" access="hasRole('ADMIN')" />
+        
+        <intercept-url pattern="/forum/lecture/addThread/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/lecture/addReply/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/lab/addThread/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/lab/addReply/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/other/addThread/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/other/addReply/**" access="hasAnyRole('USER','ADMIN')" />
+        
+        <intercept-url pattern="/forum/lecture/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/lecture/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/lab/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/lab/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/other/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/other/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/vote/**" access="hasAnyRole('USER','ADMIN')" />
         <form-login login-page="/login"
                     authentication-failure-url="/login?error" />
         <logout logout-success-url="/login?logout"
@@ -33,7 +56,7 @@
                                users-by-username-query=
             "SELECT username, password, true FROM users WHERE username=?"
                                authorities-by-username-query=
-            "SELECT username, role FROM user_roles WHERE username=?" />
+            "SELECT username, role FROM users WHERE username=?" />
         </authentication-provider>  
     </authentication-manager>
 </b:beans>
