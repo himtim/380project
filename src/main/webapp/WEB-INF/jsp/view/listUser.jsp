@@ -19,5 +19,6 @@
             Banned: ${entry.banning} role: ${entry.role}
                     <br /><br />
         </c:forEach>
+        <a href="<c:url value="../" />">Return to Home</a>
     </body>
 </html>
