@@ -38,7 +38,7 @@
                 <c:if test="${poll.choiceD!=''}">
                       D:${poll.choiceD} have ${poll.noD} votes<security:authorize access="hasAnyRole('ADMIN','USER')">[<a href="<c:url value="./vote/D" />">vote D</a>]</security:authorize><br />
                 </c:if>
-                <security:authorize access="hasRole('ADMIN')">[<a href="<c:url value="./delete/" />">Delete Poll</a>]</security:authorize> <br /><br/>
+                <security:authorize access="hasRole('ADMIN')">[<a href="<c:url value="./deletePoll/" />">Delete Poll</a>]</security:authorize> <br /><br/>
             </c:when>
             <c:otherwise>
                 There are no poll now.<br/><br/>
