@@ -24,5 +24,6 @@
             <form:input type="text" path="choiceD" /><br/><br/>
             <input type="submit" name="addPoll" value="Submit"/>
         </form:form>
+        <a href="<c:url value="../" />">Return to Home</a>
     </body>
 </html>
