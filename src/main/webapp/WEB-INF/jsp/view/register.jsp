@@ -12,6 +12,6 @@
             <form:input type="password" path="password" /> <br />
             <input type="submit" name="register" value="Register" />
         </form:form>
-        <a href="<c:url value="../../" />">Return to Home</a>
+        <a href="<c:url value="./" />">Return to Home</a>
     </body>
 </html>
