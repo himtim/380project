@@ -4,11 +4,18 @@
         <title>Forum</title>
     </head>
     <body>
-        <c:url var="logoutUrl" value="/logout"/>
-        <form action="${logoutUrl}" method="post">
-            <input type="submit" value="Log out" />
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
+        <security:authorize access="isAuthenticated()">
+            <p>Hello! <security:authentication property="principal.username" />!
+                <c:url var="logoutUrl" value="/logout"/>
+                <form action="${logoutUrl}" method="post">
+                    <input type="submit" value="Log out" />
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form>    
+            </security:authorize>
+        <security:authorize access="isAnonymous()"><p>
+                <a href="<c:url value="./register" />">Register</a> | 
+                <a href="<c:url value="/login" />">Login</a>
+        </security:authorize>
 
         <h2>Threads</h2>
         <a href="<c:url value="./addThread/" />">Create a Thread</a><br /><br />
