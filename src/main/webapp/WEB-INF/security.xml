@@ -20,26 +20,14 @@
         <intercept-url pattern="/addPoll" access="hasRole('ADMIN')" />
         <intercept-url pattern="/deletePoll" access="hasRole('ADMIN')" />
         
-        <intercept-url pattern="/forum/lecture/deleteThread/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/forum/lecture/deleteReply/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/forum/lab/deleteThread/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/forum/lab/deleteReply/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/forum/other/deleteThread/**" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/forum/other/deleteReply/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/**/deleteThread/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/forum/**/deleteReply/**" access="hasRole('ADMIN')" />
         
-        <intercept-url pattern="/forum/lecture/addThread/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/lecture/addReply/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/lab/addThread/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/lab/addReply/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/other/addThread/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/other/addReply/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/**/addThread/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/**/addReply/**" access="hasAnyRole('USER','ADMIN')" />
         
-        <intercept-url pattern="/forum/lecture/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/lecture/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/lab/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/lab/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/other/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
-        <intercept-url pattern="/forum/other/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/**/viewThread/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
+        <intercept-url pattern="/forum/**/replyAttachment/**/attachment/**" access="hasAnyRole('USER','ADMIN')" />
         <intercept-url pattern="/vote/**" access="hasAnyRole('USER','ADMIN')" />
         <form-login login-page="/login"
                     authentication-failure-url="/login?error" />
