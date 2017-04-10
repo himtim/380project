@@ -86,7 +86,7 @@ public class ThreadController{
                 tdEntryRepo.createAttachment(attachment);
             }
         }
-        return new RedirectView("../listThread", true);
+        return new RedirectView("../viewThread/"+id, true);
     }
     
     @RequestMapping(value={"viewThread/{id}"})
