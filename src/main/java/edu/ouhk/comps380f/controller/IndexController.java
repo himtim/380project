@@ -61,6 +61,7 @@ public class IndexController {
         mPoll.setNoB(0);
         mPoll.setNoC(0);
         mPoll.setNoD(0);
+        uEntryRepo.updateAllNotVoted();
         return new RedirectView("../", true);
     }
 
