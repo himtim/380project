@@ -20,7 +20,6 @@
         <security:authorize access="hasRole('ADMIN')">            
             [<a href="<c:url value="../deleteThread/${thread.tid}" />">Delete this thread</a>]
         </security:authorize>
-        <br /><br />
         Category: <c:out value="${thread.category}" /><br /><br />
         Content: <c:out value="${thread.content}" /><br /><br />
         <c:if test="${fn:length(attachments) > 0 }">
